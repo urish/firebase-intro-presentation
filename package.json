@@ -13,9 +13,10 @@
       "url": "https://github.com/hakimel/reveal.js/blob/master/LICENSE"
     }
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-sass": "^1.0.0"
   },
   "private": true
 }

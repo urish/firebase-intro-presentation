@@ -1,7 +1,7 @@
 
 // Default mixins and settings -----------------
-@import "../template/mixins";
-@import "../template/settings";
+@import "../../../bower_components/reveal.js/css/theme/template/mixins";
+@import "../../../bower_components/reveal.js/css/theme/template/settings";
 // ---------------------------------------------
 
 @font-face {
@@ -293,5 +293,5 @@ pre.code-example.isActive {
 }
 
 // Theme template ------------------------------
-@import "../template/theme";
+@import "../../../bower_components/reveal.js/css/theme/template/theme";
 // ---------------------------------------------
