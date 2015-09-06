@@ -642,7 +642,7 @@ app.controller('ChatCtrl', function($scope, $firebaseArray) {
 
     <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
     <script src="bower_components/reveal.js/js/reveal.js"></script>
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="bower_components/lodash/lodash.min.js"></script>
 
     <script>
 
@@ -671,28 +671,7 @@ app.controller('ChatCtrl', function($scope, $firebaseArray) {
           { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
-
     </script>
-
-    <script>
-
-      function signPostEra( event ) {
-        var title = event.currentSlide.attributes.title;
-
-        if(title) {
-          var era = document.getElementById('era');
-          era.innerText = title.value;
-        }
-      }
-
-      Reveal.addEventListener( 'ready', function( event ) {
-        signPostEra( event );
-      });
-
-      Reveal.addEventListener( 'slidechanged', function( event ) {
-        signPostEra( event );
-      });
-
-    </script>
+    <script src="flameshow.js"></script>
   </body>
 </html>
