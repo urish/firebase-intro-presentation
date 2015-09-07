@@ -1,12 +1,17 @@
 .fb-like-box {
   z-index: 9999;
   position: absolute;
-  right: 0;
-  height: 50px;
-  width: 50px;
+  right: 20px;
+  top: 20px;
   background-color: #eee;
 
-  font-size: 20px;
+  font-size: 24px;
+  padding: 12px;
+  box-sizing: border-box;
+
+  .fa {
+    color: blue;
+  }
 
   .fa-thumbs-o-down {
     display: none;
