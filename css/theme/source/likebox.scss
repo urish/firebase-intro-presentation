@@ -1,0 +1,24 @@
+.fb-like-box {
+  z-index: 9999;
+  position: absolute;
+  right: 0;
+  height: 50px;
+  width: 50px;
+  background-color: #eee;
+
+  font-size: 20px;
+
+  .fa-thumbs-o-down {
+    display: none;
+  }
+
+  &.liked {
+    .fa-thumbs-o-up {
+      display: none;
+    }
+
+    .fa-thumbs-o-down {
+      display: inline;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+// code for live-syncing the slides
 (function () {
   var fbRef = new Firebase('https://uri-slides.firebaseio.com/present');
 
@@ -31,4 +32,48 @@
       console.log('Login Failed!', error);
     });
   };
+})();
+
+// code for the like-box
+(function () {
+  var fbRef = new Firebase('https://uri-slides.firebaseio.com/likes');
+  var currentUser = null;
+  var likes = {};
+  var usedLiked = false;
+  var slideIndex = null;
+
+  fbRef.onAuth(function (authData) {
+    if (authData) {
+      currentUser = authData.uid;
+    } else {
+      fbRef.authAnonymously(function (error, authData) {
+        if (error) {
+          console.error('Login Failed!', error);
+        } else {
+          currentUser = authData.uid;
+          console.log('Authenticated successfully!');
+        }
+      });
+    }
+  });
+
+  document.querySelector('.fb-like-box').addEventListener('click', function () {
+    fbRef.child(slideIndex).child(currentUser).set(userLiked ? 0 : 1);
+  });
+
+  function updateLikes() {
+    slideIndex = Reveal.getIndices().h + '-' + Reveal.getIndices().v;
+    userLiked = _.get(likes, [slideIndex, currentUser], 0);
+    var totalLikes = _.filter(likes[slideIndex]).length;
+    document.querySelector('.fb-like-count').textContent = totalLikes;
+    document.querySelector('.fb-like-box').classList.toggle('liked', userLiked);
+  }
+
+  fbRef.on('value', function (snapshot) {
+    likes = snapshot.val();
+    updateLikes();
+  });
+
+  Reveal.addEventListener('slidechanged', updateLikes);
+  Reveal.addEventListener('slidechanged', updateLikes);
 })();
