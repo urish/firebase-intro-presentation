@@ -259,11 +259,11 @@ img.white-bg {
   display: block;
 }
 
-.code-box-examples pre {
+.code-box-examples pre.code-example {
   display: none;
 }
 
-.code-box-examples pre.isActive {
+.code-box-examples pre.code-example.isActive {
   display: block;
 }
 
@@ -272,12 +272,12 @@ code {
   margin: 8px;
 }
 
-.reveal pre {
+.reveal .code-box-examples  pre {
   margin: 0;
   width: 99%;
 }
 
-.reveal pre code {
+.reveal .code-box-examples  pre code {
   max-height: 500px;
 }
 
