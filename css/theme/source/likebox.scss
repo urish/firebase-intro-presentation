@@ -8,12 +8,13 @@
   font-size: 24px;
   padding: 12px;
   box-sizing: border-box;
+  transition: background 0.2s;
 
   .fa {
     color: blue;
   }
 
-  .fa-thumbs-o-down {
+  .fa-thumbs-up {
     display: none;
   }
 
@@ -22,8 +23,13 @@
       display: none;
     }
 
-    .fa-thumbs-o-down {
+    .fa-thumbs-up {
       display: inline;
     }
   }
+
+  &.splash {
+    background: #fec324;
+  }
 }
+

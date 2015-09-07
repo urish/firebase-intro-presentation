@@ -74,6 +74,15 @@
     updateLikes();
   });
 
+  fbRef.on('child_changed', function(snapshot) {
+    if (snapshot.key() === slideIndex) {
+      document.querySelector('.fb-like-box').classList.add('splash');
+      setTimeout(function() {
+        document.querySelector('.fb-like-box').classList.remove('splash');
+      }, 200);
+    }
+  })
+
   Reveal.addEventListener('slidechanged', updateLikes);
   Reveal.addEventListener('slidechanged', updateLikes);
 })();
