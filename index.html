@@ -57,7 +57,7 @@
 
   <body>
 
-    <div class="fb-like-box">
+    <div class="fb-like-box hidden">
       <span class="fb-like-count">0</span>
       <i class="fa fa-thumbs-o-up"></i>
       <i class="fa fa-thumbs-up"></i>
@@ -566,7 +566,7 @@ app.controller('ChatCtrl', function($scope, $firebaseArray) {
         <section>
 					<h3>Geofire</h3>
 					<p class="text-smaller">Store and query items based on their geographic location in realtime</p>
-					<iframe src="https://geofire.firebaseapp.com/sfVehicles/" height="450px" width="100%"></iframe>
+					<iframe defer src="https://geofire.firebaseapp.com/sfVehicles/" height="450px" width="100%"></iframe>
 				</section>
 
 				<section>

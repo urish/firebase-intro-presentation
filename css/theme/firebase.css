@@ -475,3 +475,5 @@ body {
     display: inline; }
   .fb-like-box.splash {
     background: #fec324; }
+  .fb-like-box.hidden {
+    display: none; }

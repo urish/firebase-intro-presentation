@@ -61,6 +61,10 @@
     fbRef.child(slideIndex).child(currentUser).set(userLiked ? 0 : 1);
   });
 
+  function showLikeBox() {
+    document.querySelector('.fb-like-box').classList.remove('hidden');
+  }
+
   function updateLikes() {
     slideIndex = Reveal.getIndices().h + '-' + Reveal.getIndices().v;
     userLiked = _.get(likes, [slideIndex, currentUser], 0);
@@ -72,16 +76,20 @@
   fbRef.on('value', function (snapshot) {
     likes = snapshot.val();
     updateLikes();
+    showLikeBox();
   });
 
-  fbRef.on('child_changed', function(snapshot) {
+  function splashLikeBox(snapshot) {
     if (snapshot.key() === slideIndex) {
       document.querySelector('.fb-like-box').classList.add('splash');
       setTimeout(function() {
         document.querySelector('.fb-like-box').classList.remove('splash');
       }, 200);
     }
-  })
+  }
+
+  fbRef.on('child_added', splashLikeBox);
+  fbRef.on('child_changed', splashLikeBox);
 
   Reveal.addEventListener('slidechanged', updateLikes);
   Reveal.addEventListener('slidechanged', updateLikes);
