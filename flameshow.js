@@ -78,7 +78,7 @@
   }
 
   fbRef.on('value', function (snapshot) {
-    likes = snapshot.val();
+    likes = snapshot.val() || {};
     updateLikes();
     showLikeBox();
   });
