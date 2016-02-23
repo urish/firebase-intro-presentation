@@ -28,8 +28,12 @@
   });
 
   window.login = function () {
-    fbRef.authWithOAuthRedirect('google', function (error) {
-      console.log('Login Failed!', error);
+    fbRef.authWithOAuthPopup('google', function (error, auth) {
+      if (error) {
+        console.log('Login Failed!', error);        
+      } else {
+        console.log('login success', auth);
+      }
     });
   };
 })();
